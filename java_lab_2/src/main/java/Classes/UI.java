@@ -6,9 +6,9 @@ public class UI {
     private Scanner _sc; // Объект сканнера
     static private final String _defaultMess = "Enter password with at least 1 "
             + "upper case letter, 1 lower case and 1 number. Password can "
-            + "include '_': "; // Сообщение
-    // для пользователя по умолчанию
-    static private final String _wrongPassMess = "Wrong password";
+            + "include '_': "; // Сообщение для пользователя по умолчанию
+    static private final String _wrongPassMess = "Wrong password"; // Сообщение
+    // для пользователя в случае некорректного пароля
 
     /**
      * Конструктор с параметром
@@ -33,16 +33,13 @@ public class UI {
         System.out.println(_message);
         Password pass = new Password();
         String inputUser;
-//        do{
-//            inputUser = scanInput();
-//        }while(!pass.passVerification(inputUser));
         inputUser = scanInput();
         while(!pass.passVerification(inputUser)){
             System.out.println(_wrongPassMess);
             System.out.println(_defaultMess);
             inputUser = scanInput();
         }
-        
+        System.out.println("Correct!"); 
     }
     
     /**
