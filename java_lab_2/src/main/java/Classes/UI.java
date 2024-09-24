@@ -6,7 +6,7 @@ public class UI {
     private Scanner _sc; // Объект сканнера
     static private final String _defaultMess = "Enter password with at least 1 "
             + "upper case letter, 1 lower case and 1 number. Password can "
-            + "include '_': "; // Сообщение для пользователя по умолчанию
+            + "include '_'. At least 8 characters: "; // Сообщение для пользователя по умолчанию
     static private final String _wrongPassMess = "Wrong password"; // Сообщение
     // для пользователя в случае некорректного пароля
 
@@ -31,15 +31,11 @@ public class UI {
      */
     public void startApplication(){
         System.out.println(_message);
-        Password pass = new Password();
-        String inputUser;
-        inputUser = scanInput();
-        while(!pass.passVerification(inputUser)){
-            System.out.println(_wrongPassMess);
-            System.out.println(_defaultMess);
-            inputUser = scanInput();
-        }
-        System.out.println("Correct!"); 
+        String[] inputUser = (scanInput()).split(", ");
+         for (var str: inputUser){
+             Password password = new Password(str);
+             System.out.println(password.getPass() + " " + password.getStatus());
+         }
     }
     
     /**
@@ -50,6 +46,5 @@ public class UI {
         String inputUser = _sc.nextLine();
         return inputUser;
     }
- 
-     
+    
 }
