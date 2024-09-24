@@ -1,13 +1,26 @@
 package Classes;
 import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
+/**
+ * Класс пароля
+ */
 public class Password {
+    /**
+     * Регулярное выражение
+     */
     static final String _reg = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9_]"
             + "{8,}"; //регулярное выражение
-    private String _defaultValue = "None"; //Значение по умолчанию
-    private String _value; // Значение пароля
-    private boolean _status; // Статус пароля
+    /**
+     * Значение пароля по умолчанию
+     */
+    private String _defaultValue = "None";
+    /**
+     * Значение пароля
+     */
+    private String _value; 
+    /**
+     * Статус пароля
+     */
+    private boolean _status; 
     
     /**
      * Конструктор по умолчанию

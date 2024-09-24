@@ -1,5 +1,4 @@
 //Ермаков, Петровский, лабораторная работа 2, вариант 9
-
 package com.mycompany.java_lab_2;
 import Classes.UI;
 

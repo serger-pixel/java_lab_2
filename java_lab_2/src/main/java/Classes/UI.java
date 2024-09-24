@@ -1,15 +1,24 @@
 package Classes;
 import java.util.Scanner;
 
+/**
+ * Класс пользовательского интерфейса
+ */
 public class UI {
-    private String _message; // Сообщение для пользователя
-    private Scanner _sc; // Объект сканнера
+    /**
+     *  Сообщение для пользователя
+     */
+    private String _message; 
+    /**
+     *  Объект сканера
+     */
+    private Scanner _sc; 
+    /**
+     * Сообщение для пользователя по умолчанию
+     */
     static private final String _defaultMess = "Enter password with at least 1 "
             + "upper case letter, 1 lower case and 1 number. Password can "
-            + "include '_'. At least 8 characters: "; // Сообщение для пользователя по умолчанию
-    static private final String _wrongPassMess = "Wrong password"; // Сообщение
-    // для пользователя в случае некорректного пароля
-
+            + "include '_'. At least 8 characters: ";
     /**
      * Конструктор с параметром
      * @param message - сообщение для пользователя 
