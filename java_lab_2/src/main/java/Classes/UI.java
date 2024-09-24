@@ -31,10 +31,9 @@ public class UI {
      */
     public void startApplication(){
         System.out.println(_message);
-        String[] inputUser = (scanInput()).split(", ");
-         for (var str: inputUser){
-             Password password = new Password(str);
-             System.out.println(password.getPass() + " " + password.getStatus());
+        Password[] inputUser = Password.stringToArray(scanInput());
+         for (var pass: inputUser){
+             pass.printPass();
          }
     }
     

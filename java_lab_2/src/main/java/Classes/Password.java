@@ -7,14 +7,14 @@ public class Password {
             + "{8,}"; //регулярное выражение
     private String _defaultValue = "None"; //Значение по умолчанию
     private String _value; // Значение пароля
-    private String _status; // Статус пароля
+    private boolean _status; // Статус пароля
     
     /**
      * Конструктор по умолчанию
      */
     public Password(){
         _value = _defaultValue;
-        _status = _defaultValue;
+        _status = false;
     }
     
     /**
@@ -31,19 +31,43 @@ public class Password {
      * @param pass - введённый пользователем пароль
      * @return true/false в зависимости от результата проверки
      */
-    private String passVerification(String pass){
-        boolean result = Pattern.matches(_reg, pass);
-        if (result){
-            return "Correct";
+    private boolean passVerification(String pass){
+        return Pattern.matches(_reg, pass);
+    }
+    
+    /**
+     * Выводит пароль
+     */
+    public void printPass(){
+        String statusStr;
+        if (_status){
+            statusStr = "Correct!";
         }
-        return "Wrong";
+        else{
+            statusStr = "Wrong";
+        }
+        System.out.println(getPass() + " " + statusStr);
+    }
+    
+    /**
+     * Переводит строку в массив паролей
+     * @param input - ввод пользователя
+     * @return массив паролей
+     */
+    static public Password[] stringToArray(String input){
+        String[] passwordsStr = input.split(", ");
+        Password[] mass = new Password[passwordsStr.length];
+         for (int i = 0; i<passwordsStr.length; i++){
+             mass[i] = new Password(passwordsStr[i]);
+         }
+         return mass;
     }
     
     /**
      * Получение статуса пароля
      * @return строку "wrong"/"correct"
      */
-    public String getStatus(){
+    public boolean getStatus(){
         return _status;
     }
     
