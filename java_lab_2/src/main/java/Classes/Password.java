@@ -49,9 +49,10 @@ public class Password {
     }
     
     /**
-     * Выводит пароль
+     * Возвращает строчку с информацие о пароле
+     * @return строчку с информацие о пароле
      */
-    public void printPass(){
+    public String getString(){
         String statusStr;
         if (_status){
             statusStr = "Correct!";
@@ -59,7 +60,7 @@ public class Password {
         else{
             statusStr = "Wrong";
         }
-        System.out.println(getPass() + " " + statusStr);
+        return (getPass() + " " + statusStr);
     }
     
     /**

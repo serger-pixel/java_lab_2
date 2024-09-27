@@ -42,7 +42,7 @@ public class UI {
         System.out.println(_message);
         Password[] inputUser = Password.stringToArray(scanInput());
          for (var pass: inputUser){
-             pass.printPass();
+             System.out.println(pass.getString());
          }
     }
     
